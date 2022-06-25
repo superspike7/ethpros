@@ -6,22 +6,66 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application" %>
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application' %>
-    <!--
-      If using a TypeScript entrypoint file:
-        vite_typescript_tag 'application'
-
-      If using a .jsx or .tsx entrypoint, add the extension:
-        vite_javascript_tag 'application.jsx'
-
-      Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
-    -->
-
   </head>
 
   <body>
-    <%= yield %>
+    <main class="grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] h-screen w-screen">
+      <header class="h-24 w-full flex items-center justify-between px-16 gap-16 border-b border-b-gray-300">
+        <div class="flex-1 relative">
+          <input type="text" 
+                 name="search" 
+                 placeholder="Search for stock market"
+                 class="block p-2 pr-10 w-full text-lg text-gray-900 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">
+          <%= vite_image_tag 'icons/search.svg', class: 'h-8 w-8 absolute bottom-2 right-2.5' %>
+        </div>
+
+        <h4 class="font-bold text-lg text-gray-600">
+          Saturday, 25 June 2022
+        </h4>
+
+        <button class="block h-8 w-8"><%= vite_image_tag 'icons/bell.svg' %></button>
+
+        <div class="flex gap-2 items-center">
+          <img src="https://avatars.githubusercontent.com/u/65844337?s=400&u=b872986d427f2a55977da054cc61d941b377799e&v=4" 
+               alt="user avatar"
+               class="h-12 w-12 rounded-full"
+               >
+          <h3 class="text-xl font-semibold text-gray-800">Spike Vinz Cruz</h3>
+        </div>
+
+      </header>
+      <nav class="row-start-1 row-span-2 w-96 p-10 flex flex-col bg-gray-100">
+        <div class="p-4">
+          <h1 class="text-center text-4xl font-black text-gray-900 font-mono">EthPros</h1>
+        </div>
+        <ul class="flex-1 border-t-2 border-b-2 border-t-gray-400 border-b-gray-400 flex flex-col gap-4 py-8">
+          <li><a href="#" class="text-gray-600 text-xl font-medium flex gap-4">
+              <%= vite_image_tag 'icons/dashboard.svg', class: 'h-8 stroke-g4ay-600' %>
+              Dashboard
+            </a>
+          </li>
+          <li><a href="#" class="text-gray-600 text-xl font-medium flex gap-4">
+              <%= vite_image_tag 'icons/market.svg', class: 'h-8 stroke-gray4600' %>
+              Market
+            </a>
+          </li>
+          <li><a href="#" class="text-gray-600 text-xl font-medium flex gap-4">
+              <%= vite_image_tag 'icons/portfolio.svg', class: 'h-8 stroke-g4ay-600' %>
+              Portfolio
+            </a>
+          </li>
+          <li><a href="#" class="text-gray-600 text-xl font-medium flex gap-4">
+              <%= vite_image_tag 'icons/transactions.svg', class: 'h-8 stroke-gray-600' %>
+              Transactions
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <section class="">
+        <%= yield %>
+      </section>
+    </main>
   </body>
 </html>
