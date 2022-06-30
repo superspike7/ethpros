@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     confirmations: 'users/confirmations'
   }
+  
+  namespace :market do
+    resources :stocks, only: [:index]
+  end
 
   get 'home', to: 'static_pages#home'
   

@@ -1,0 +1,2 @@
+module Market::StocksHelper
+end
