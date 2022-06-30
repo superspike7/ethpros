@@ -93,5 +93,4 @@ RSpec.configure do |config|
 =end
 
   # Factory bot spec_helper
-  config.include FactoryBot::Syntax::Methods
 end
