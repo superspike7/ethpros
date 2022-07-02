@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
+  get 'home', to: 'static_pages#home'
+  
   root "stocks#index"
 end
