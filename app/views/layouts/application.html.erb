@@ -41,20 +41,29 @@
           <h1 class="text-center text-4xl font-black text-gray-900 font-mono">EthPros</h1>
         </div>
         <ul class="flex-1 border-t-2 border-b-2 border-t-gray-400 border-b-gray-400 flex flex-col gap-4 py-8">
-          <li><a href="#" class="text-gray-600 text-xl font-medium flex gap-4">
-              <%= vite_image_tag 'icons/dashboard.svg', class: 'h-8 stroke-g4ay-600' %>
-              Dashboard
-            </a>
+          <li>
+            <%= link_to root_path do %>
+              <div class="text-gray-600 text-xl font-medium flex gap-4">
+                <%= vite_image_tag 'icons/dashboard.svg', class: 'h-8 stroke-g4ay-600' %>
+                Dashboard
+              </div>
+            <% end %>
           </li>
-          <li><a href="#" class="text-gray-600 text-xl font-medium flex gap-4">
-              <%= vite_image_tag 'icons/market.svg', class: 'h-8 stroke-gray4600' %>
-              Market
-            </a>
+          <li>
+            <%= link_to market_stocks_path do %>
+              <div class="text-gray-600 text-xl font-medium flex gap-4">
+                <%= vite_image_tag 'icons/market.svg', class: 'h-8 stroke-gray4600' %>
+                Market
+              </div>
+            <% end %>
           </li>
-          <li><a href="#" class="text-gray-600 text-xl font-medium flex gap-4">
-              <%= vite_image_tag 'icons/portfolio.svg', class: 'h-8 stroke-g4ay-600' %>
-              Portfolio
-            </a>
+          <li>
+            <%= link_to stocks_path do %>
+              <div class="text-gray-600 text-xl font-medium flex gap-4">
+                <%= vite_image_tag 'icons/portfolio.svg', class: 'h-8 stroke-g4ay-600' %>
+                Portfolio
+              </div>
+            <% end %>
           </li>
           <li><a href="#" class="text-gray-600 text-xl font-medium flex gap-4">
               <%= vite_image_tag 'icons/transactions.svg', class: 'h-8 stroke-gray-600' %>
