@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :stocks, only: [:index]
+  resources :stocks, only: [:index, :new]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   }
   
   namespace :market do
-    resources :stocks, only: [:index]
+    resources :stocks, only: [:index, :show]
   end
 
   get 'home', to: 'static_pages#home'
