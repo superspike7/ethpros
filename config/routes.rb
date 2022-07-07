@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :stocks, only: [:index, :new]
+  resources :stocks, only: [:index]
+  resources :stock_transactions, only: [:new, :create]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
