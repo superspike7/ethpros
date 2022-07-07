@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :stock_transaction do
+    stock { nil }
+  end
+
   factory :stock do
     symbol { "AAPL" }
     company_name { "Apple Inc" }

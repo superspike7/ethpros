@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_06_075832) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_06_093832) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "stock_transactions", force: :cascade do |t|
+    t.bigint "stock_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_stock_transactions_on_stock_id"
+    t.index ["user_id"], name: "index_stock_transactions_on_user_id"
+  end
 
   create_table "stocks", force: :cascade do |t|
     t.integer "avg_total_volume"
@@ -73,4 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_075832) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "stock_transactions", "stocks"
+  add_foreign_key "stock_transactions", "users"
 end
