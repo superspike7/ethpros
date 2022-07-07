@@ -1,4 +1,4 @@
-<div class="w-[90%] h-[90%] bg-gray-50 flex flex-col">
+<div class="w-[90%] h-[90%] bg-gray-50 flex flex-col justify-between">
   <div class="h-24 flex items-end bg-gray-800">
     <div class="bg-gray-50 h-full flex-1 relative p-4">
       <div
@@ -17,8 +17,8 @@
     </button>
   </div>
 
-  <div class="flex-1 bg-gray-50 flex flex-col">
-    <table class="w-full text-sm text-left text-gray-500 flex-1">
+  <div class="bg-gray-50 flex-1">
+    <table class="w-full text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
                 <th scope="col" class="px-6 py-3">
@@ -51,309 +51,42 @@
             </tr>
         </thead>
         <tbody>
+          <% @transactions.each do |t| %>
             <tr class="bg-white border-b ">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  TSLA
+                  <%= t.stock.symbol %>
                 </th>
                 <td class="px-6 py-4">
-                  Tesla Motors
+                  <%= t.stock.company_name %>
                 </td>
                 <td class="px-6 py-4">
-                  Buy
+                  Buy(static tba)
                 </td>
                 <td class="px-6 py-4">
-                  0.69
+                  <%= t.amount %>
                 </td>
                 <td class="px-6 py-4">
-                  $420
+                  <%= t.stock.latest_price %>
                 </td>
                 <td class="px-6 py-4">
-                  $420.69
+                  $420.69(static tba)
                 </td>
                 <td class="px-6 py-4">
-                  06/25/22
+                  <%= t.stock.latest_time %>
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell</a>
+                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell (tba)</a>
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More</a>
+                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More (tba)</a>
                 </td>
             </tr>
-
-            <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  TSLA
-                </th>
-                <td class="px-6 py-4">
-                  Tesla Motors
-                </td>
-                <td class="px-6 py-4">
-                  Buy
-                </td>
-                <td class="px-6 py-4">
-                  0.69
-                </td>
-                <td class="px-6 py-4">
-                  $420
-                </td>
-                <td class="px-6 py-4">
-                  $420.69
-                </td>
-                <td class="px-6 py-4">
-                  06/25/22
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell</a>
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More</a>
-                </td>
-            </tr>
-
-            <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  TSLA
-                </th>
-                <td class="px-6 py-4">
-                  Tesla Motors
-                </td>
-                <td class="px-6 py-4">
-                  Buy
-                </td>
-                <td class="px-6 py-4">
-                  0.69
-                </td>
-                <td class="px-6 py-4">
-                  $420
-                </td>
-                <td class="px-6 py-4">
-                  $420.69
-                </td>
-                <td class="px-6 py-4">
-                  06/25/22
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell</a>
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More</a>
-                </td>
-            </tr>
-
-            <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  TSLA
-                </th>
-                <td class="px-6 py-4">
-                  Tesla Motors
-                </td>
-                <td class="px-6 py-4">
-                  Buy
-                </td>
-                <td class="px-6 py-4">
-                  0.69
-                </td>
-                <td class="px-6 py-4">
-                  $420
-                </td>
-                <td class="px-6 py-4">
-                  $420.69
-                </td>
-                <td class="px-6 py-4">
-                  06/25/22
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell</a>
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More</a>
-                </td>
-            </tr>
-
-            <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  TSLA
-                </th>
-                <td class="px-6 py-4">
-                  Tesla Motors
-                </td>
-                <td class="px-6 py-4">
-                  Buy
-                </td>
-                <td class="px-6 py-4">
-                  0.69
-                </td>
-                <td class="px-6 py-4">
-                  $420
-                </td>
-                <td class="px-6 py-4">
-                  $420.69
-                </td>
-                <td class="px-6 py-4">
-                  06/25/22
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell</a>
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More</a>
-                </td>
-            </tr>
-
-            <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  TSLA
-                </th>
-                <td class="px-6 py-4">
-                  Tesla Motors
-                </td>
-                <td class="px-6 py-4">
-                  Buy
-                </td>
-                <td class="px-6 py-4">
-                  0.69
-                </td>
-                <td class="px-6 py-4">
-                  $420
-                </td>
-                <td class="px-6 py-4">
-                  $420.69
-                </td>
-                <td class="px-6 py-4">
-                  06/25/22
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell</a>
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More</a>
-                </td>
-            </tr>
-
-            <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  TSLA
-                </th>
-                <td class="px-6 py-4">
-                  Tesla Motors
-                </td>
-                <td class="px-6 py-4">
-                  Buy
-                </td>
-                <td class="px-6 py-4">
-                  0.69
-                </td>
-                <td class="px-6 py-4">
-                  $420
-                </td>
-                <td class="px-6 py-4">
-                  $420.69
-                </td>
-                <td class="px-6 py-4">
-                  06/25/22
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell</a>
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More</a>
-                </td>
-            </tr>
-
-            <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  TSLA
-                </th>
-                <td class="px-6 py-4">
-                  Tesla Motors
-                </td>
-                <td class="px-6 py-4">
-                  Buy
-                </td>
-                <td class="px-6 py-4">
-                  0.69
-                </td>
-                <td class="px-6 py-4">
-                  $420
-                </td>
-                <td class="px-6 py-4">
-                  $420.69
-                </td>
-                <td class="px-6 py-4">
-                  06/25/22
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell</a>
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More</a>
-                </td>
-            </tr>
-
-            <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  TSLA
-                </th>
-                <td class="px-6 py-4">
-                  Tesla Motors
-                </td>
-                <td class="px-6 py-4">
-                  Buy
-                </td>
-                <td class="px-6 py-4">
-                  0.69
-                </td>
-                <td class="px-6 py-4">
-                  $420
-                </td>
-                <td class="px-6 py-4">
-                  $420.69
-                </td>
-                <td class="px-6 py-4">
-                  06/25/22
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell</a>
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More</a>
-                </td>
-            </tr>
-
-            <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  TSLA
-                </th>
-                <td class="px-6 py-4">
-                  Tesla Motors
-                </td>
-                <td class="px-6 py-4">
-                  Buy
-                </td>
-                <td class="px-6 py-4">
-                  0.69
-                </td>
-                <td class="px-6 py-4">
-                  $420
-                </td>
-                <td class="px-6 py-4">
-                  $420.69
-                </td>
-                <td class="px-6 py-4">
-                  06/25/22
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell</a>
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Buy More</a>
-                </td>
-            </tr>
+          <% end %>
 
         </tbody>
     </table>
-    <div class="flex h-16">
+  </div>
+    <div class="flex h-16 justify-self-end">
       <div class="flex-1 flex items-center p-4">
         <p class="text-gray-400 text-lg font-medium">1-10 of 17 items</p>
       </div>
@@ -363,5 +96,4 @@
       <button class="flex items-center justify-center px-10 bg-gray-700 text-gray-200 text-2xl border border-gray-200">&larr;</button>
       <button class="flex items-center justify-center px-10 bg-gray-700 text-gray-200 text-2xl border border-gray-200">&rarr;</button>
     </div>
-  </div>
 </div>
