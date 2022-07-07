@@ -12,7 +12,8 @@
 
   <body>
     <main class="grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] h-screen w-screen">
-      <header class="h-24 w-full flex items-center justify-between px-16 gap-16 border-b border-b-gray-300">
+      <header class="h-24 w-full flex items-center justify-between px-16 gap-16 border-b border-b-gray-300 relative">
+        <%= render 'layouts/shared/flash' %>
         <div class="flex-1 relative">
           <input type="text" 
                  name="search" 
