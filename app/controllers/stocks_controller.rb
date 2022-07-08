@@ -5,7 +5,7 @@ class StocksController < ApplicationController
     unless user_signed_in?
       redirect_to home_path 
     else
-      @transactions = current_user.stock_transactions.includes(:stock)
+      @stocks = current_user.stocks.distinct
     end
   end
 end
