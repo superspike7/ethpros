@@ -4,6 +4,10 @@ class StockTransactionsController < ApplicationController
     @new_stock = StockTransaction.new(stock_id: @stock.id)
   end
 
+  def index
+    @transactions = current_user.stock_transactions.includes(:stock).order(created_at: :desc)
+  end
+
   def create
     @stock_transaction = current_user.stock_transactions.new(stock_transaction_params)
 
