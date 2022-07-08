@@ -66,10 +66,13 @@
               </div>
             <% end %>
           </li>
-          <li><a href="#" class="text-gray-600 text-xl font-medium flex gap-4">
-              <%= vite_image_tag 'icons/transactions.svg', class: 'h-8 stroke-gray-600' %>
+          <li>
+            <%= link_to stock_transactions_path do %>
+              <div class="text-gray-600 text-xl font-medium flex gap-4">
+                <%= vite_image_tag 'icons/transactions.svg', class: 'h-8 stroke-g4ay-600' %>
               Transactions
-            </a>
+              </div>
+            <% end %>
           </li>
         </ul>
         <%=
