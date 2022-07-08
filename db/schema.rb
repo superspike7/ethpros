@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_06_093832) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_07_021243) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,14 +29,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_093832) do
     t.string "calculation_price"
     t.float "change_percent"
     t.string "change_percent_s"
-    t.integer "close_time"
+    t.bigint "close_time"
     t.string "company_name"
     t.float "delayed_price"
-    t.integer "delayed_price_time"
+    t.bigint "delayed_price_time"
     t.float "extended_change_percent"
     t.string "extended_change_percent_s"
     t.integer "extended_price"
-    t.integer "extended_price_time"
+    t.bigint "extended_price_time"
     t.integer "iex_ask_price"
     t.integer "iex_ask_size"
     t.integer "iex_bid_price"
@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_093832) do
     t.datetime "latest_update_t"
     t.integer "latest_volume"
     t.bigint "market_cap"
-    t.integer "open_time"
+    t.bigint "open_time"
     t.float "pe_ratio"
     t.float "previous_close"
     t.string "primary_exchange"
