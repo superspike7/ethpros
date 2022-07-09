@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   get 'home', to: 'static_pages#home'
+  get 'admin', to: 'admin#index'
   
   root "stocks#index"
 end
