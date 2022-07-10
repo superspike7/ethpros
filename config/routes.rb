@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :transactions, only: [:create, :index]
   resources :transactions, only: [:new, :create, :index]
   resources :stock_transactions, only: [:new, :create, :index]
-  resources :admin
+  resources :admin, only: [:new, :create, :edit, :index]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   get 'home', to: 'static_pages#home'
   get 'transactions/new/:transaction_type(/:symbol)', to: 'transactions#new', as: 'new_transaction'
+  get 'admin/all', to: 'admin#all'
+  get 'admin/transactions', to: 'admin#transactions'
+  get 'admin/pending', to: 'admin#pending'
   
   root "stocks#index"
 end

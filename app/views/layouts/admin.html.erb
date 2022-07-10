@@ -14,19 +14,19 @@
     <main class="bg-white relative overflow-hidden h-screen">
       <div class='flex h-screen'>
         <div class='w-1/5 bg-zinc-500 flex flex-col p-10 text-white text-lg'>
-          <div class='flex justify-center p-5'>
+          <div class='flex justify-center p-5'> 
             <div class='text-4xl'>Admin</div>
             <div class='text-4xl text-blue-800'>.</div>
           </div>
           <div class='h-full flex flex-col justify-between'>
             <div class=''>
-              <div class='p-4'>Dashboard</div>
-              <div class='p-4'>All Users</div>
-              <div class='p-4'>Pending Users</div>
-              <div class='p-4'>Transactions</div>
+              <div class='p-4'><%= link_to "Dashboard", admin_index_path %></div>
+              <div class='p-4'><%= link_to "All Users", admin_all_path %></div>
+              <div class='p-4'><%= link_to "Pending Users", admin_pending_path %></div>
+              <div class='p-4'><%= link_to "Transactions", admin_transactions_path %></div>
             </div>
             <div>
-              <div class='p-4 text-center border border-white rounded-xl font-bold'>Logout</div>
+              <div class='p-4 text-center border border-white rounded-xl font-bold'><%= button_to "Logout", destroy_user_session_path, method: :delete %></div>
             </div>
           </div>
         </div>
