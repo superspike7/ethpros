@@ -15,12 +15,14 @@ class AdminController < ApplicationController
   end
   
   def all
-    render :action => 'all'
+    @users = User.all
   end
-  
-  def pending
-  end
-  
+
   def transactions
   end
+
+  def pending
+    @users = User.all
+  end
+
 end
