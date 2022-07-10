@@ -12,7 +12,28 @@
 
   <body>
     <main class="bg-white relative overflow-hidden h-screen">
-      <%= yield %>
+      <div class='flex h-screen'>
+        <div class='w-1/5 bg-zinc-500 flex flex-col p-10 text-white text-lg'>
+          <div class='flex justify-center p-5'>
+            <div class='text-4xl'>Admin</div>
+            <div class='text-4xl text-blue-800'>.</div>
+          </div>
+          <div class='h-full flex flex-col justify-between'>
+            <div class=''>
+              <div class='p-4'>Dashboard</div>
+              <div class='p-4'>All Users</div>
+              <div class='p-4'>Pending Users</div>
+              <div class='p-4'>Transactions</div>
+            </div>
+            <div>
+              <div class='p-4 text-center border border-white rounded-xl font-bold'>Logout</div>
+            </div>
+          </div>
+        </div>
+        <div class='w-4/5 bg-zinc-50'>
+          <%= yield %>
+        </div>
+      </div>
     </main>
   </body>
 </html>
