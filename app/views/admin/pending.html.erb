@@ -7,11 +7,17 @@
     </div>
   </div>
   <div class='flex flex-col'>
-    <% @users.each do |user| %>
-    <div class='flex flex-row justify-between'>
-        <div><%= user.id %></div>
-        <div><%= user.email %></div>
-        <div><%= user.created_at.to_time.strftime('%B %e at %l:%M %p') %></div>
+    <% @pending.each do |pending| %>
+    <div class='flex flex-row'>
+        <div class='w-1/6'><%= pending.id %></div>
+        <div class='w-1/6'><%= pending.role %></div>
+        <div class='w-1/6'><%= pending.email %></div>
+        <div class='w-1/6'><%= pending.created_at.to_time.strftime('%B %e at %l:%M %p') %></div>
+        <div class='flex justify-center w-1/6'><%= pending.pending %></div>
+        <div class='flex flex-row justify-end w-1/6'>
+          <div class='px-5'>Edit</div>
+          <div class='px-5'>Delete</div>
+        </div>
     </div>
     <% end %>
   </div>
