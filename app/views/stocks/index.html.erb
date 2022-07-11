@@ -51,22 +51,22 @@
             </tr>
         </thead>
         <tbody>
-          <% @stocks.each do |stock| %>
-            <tr class="bg-white border-b ">
+          <% @shares.each do |s| %>
+            <tr class="bg-white border-b" id="<%= s.stock.symbol %>">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  <%= stock.symbol %>
+                  <%= s.stock.symbol %>
                 </th>
                 <td class="px-6 py-4">
-                  <%= stock.company_name %>
+                  <%= s.stock.company_name %>
                 </td>
                 <td class="px-6 py-4">
                   Buy(static tba)
                 </td>
                 <td class="px-6 py-4">
-                  123 tba
+                  <%= s.value %>
                 </td>
                 <td class="px-6 py-4">
-                  <%= stock.price %>
+                  <%= s.stock.price %>
                 </td>
                 <td class="px-6 py-4">
                   $420.69(static tba)
@@ -75,7 +75,17 @@
                   July 11, 2022 tba
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Sell (tba)</a>
+                    <%=
+                      button_to 'Sell',
+                                new_transaction_path,
+                                class:
+                                  'font-medium text-blue-600 hover:underline',
+                                params: {
+                                  'symbol' => s.stock.symbol,
+                                  'transaction_type' => 'SELL',
+                                },
+                                method: :get
+                    %>
                 </td>
                 <td class="px-6 py-4 text-right">
                     <a href="#" class="font-medium text-blue-600 hover:underline">Buy More (tba)</a>
