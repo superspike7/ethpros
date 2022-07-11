@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "TraderPortfolio", type: :feature do
   scenario 'Trader Bought a stock ' do
-    transaction = create(:stock_transaction)
+    transaction = create(:transaction)
     sign_in transaction.user 
 
     visit 'stocks'
