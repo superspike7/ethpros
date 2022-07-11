@@ -8,11 +8,16 @@
   </div>
   <div class='flex flex-col'>
     <% @users.each do |user| %>
-    <div class='flex flex-row justify-between'>
-        <div><%= user.id %></div>
-        <div><%= user.email %></div>
-        <div><%= user.role %></div>
-        <div><%= user.created_at.to_time.strftime('%B %e at %l:%M %p') %></div>
+    <div class='flex flex-row'>
+        <div class='w-1/6'><%= user.id %></div>
+        <div class='w-1/6'><%= user.role %></div>
+        <div class='w-1/6'><%= user.email %></div>
+        <div class='w-1/6'><%= user.created_at.to_time.strftime('%B %e at %l:%M %p') %></div>
+        <div class='flex justify-center w-1/6'><%= user.pending %></div>
+        <div class='flex flex-row justify-end w-1/6'>
+          <div class='px-5'>Edit</div>
+          <div class='px-5'>Delete</div>
+        </div>
     </div>
     <% end %>
   </div>

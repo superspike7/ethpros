@@ -13,6 +13,12 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :user
   end
+
+  enum pending: [:waiting, :approved]
+  after_initialize :set_default_pending, :if => :new_record?
+  def set_default_pending
+    self.role ||= :waiting
+  end
   
   has_many :stock_transactions
 end
