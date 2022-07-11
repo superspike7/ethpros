@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :transactions, only: [:create, :index]
   resources :transactions, only: [:new, :create, :index]
   resources :stock_transactions, only: [:new, :create, :index]
-  resources :admin, only: [:new, :create, :edit, :index]
+  resources :admin, only: [:index]
+  resources :users_view, :controller => 'users', only: [:index]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   get 'admin/all', to: 'admin#all'
   get 'admin/transactions', to: 'admin#transactions'
   get 'admin/pending', to: 'admin#pending'
+  get 'users/approval', to: 'users#approval'
   
-  root "stocks#index"
+  root "users#index"
 end
