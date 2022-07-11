@@ -3,6 +3,8 @@ class AdminController < ApplicationController
   
   def index
     @users = User.all
+    @pending = User.where(pending: "waiting")
+    @newuser = User.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
   end
 
   def new
@@ -23,6 +25,7 @@ class AdminController < ApplicationController
 
   def pending
     @users = User.all
+    @pending = User.where(pending: "waiting")
   end
 
 end
