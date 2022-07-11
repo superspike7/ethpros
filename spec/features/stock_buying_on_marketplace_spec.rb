@@ -20,5 +20,8 @@ RSpec.feature 'StockBuyingOnMarketplaces', type: :feature do
     click_on('Buy')
     expect(page.current_path).to eq(stocks_path)
     expect(page).to have_content 'your transaction is successful'
+    within 'tr#AAPL' do
+      expect(page).to have_content('10')
+    end
   end
 end

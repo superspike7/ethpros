@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="rounded-xl flex-1 w-full p-4 flex flex-col">
-      <h1 class="text-2xl font-bold text-center mb-8">Buy <%= @stock.symbol %> Stocks</h1>
+      <h1 class="text-2xl font-bold text-center mb-8"> <%= @transaction_type.capitalize %> <%= @stock.symbol %> Stocks</h1>
       <%= form_with model: @new_stock, class: 'flex flex-col justify-between flex-1' do |f| %>
         <%= f.hidden_field :stock_id, value: @new_stock.stock_id %>
         <%= f.hidden_field :transaction_type, value: @transaction_type %>
@@ -28,7 +28,7 @@
          <%= f.text_field :amount, class: 'border border-gray-800 w-full rounded-xl p-2 text-2xl' %>
        </div>
 
-       <%= f.submit "Buy", class: 'bg-gray-800 text-gray-100 font-bold text-xl py-4 w-full rounded-lg' %>
+       <%= f.submit @transaction_type.capitalize , class: 'bg-gray-800 text-gray-100 font-bold text-xl py-4 w-full rounded-lg' %>
       <% end %>
     </div>
   </div>
