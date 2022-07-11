@@ -5,7 +5,7 @@ class StocksController < ApplicationController
     unless user_signed_in?
       redirect_to home_path 
     else
-      @stocks = current_user.stocks.distinct
+      @stocks = current_user.stocks
     end
   end
 end
