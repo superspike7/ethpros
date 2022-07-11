@@ -1,6 +1,6 @@
-<div class='p-7'>
-  <div class='flex flex-row justify-between items-center p-5'>
-    <div class='text-3xl'>Traders List</div>
+<div class='p-7 h-screen'>
+  <div class='h-1/6 flex flex-row justify-between items-center p-5'>
+    <div class='text-3xl'>All Users</div>
     <div class='flex flex-row justify-between items-center'>
       <div class='px-5'>Search</div>
       <div class='p-3 text-center border border-black rounded-xl font-bold'>Add</div>
@@ -11,6 +11,7 @@
     <div class='flex flex-row justify-between'>
         <div><%= user.id %></div>
         <div><%= user.email %></div>
+        <div><%= user.role %></div>
         <div><%= user.created_at.to_time.strftime('%B %e at %l:%M %p') %></div>
     </div>
     <% end %>
