@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   def new
     @stock = Stock.find_by_symbol(params[:symbol])
+    @transaction_type = params[:transaction_type]
     @new_stock = Transaction.new(stock_id: @stock.id)
   end
 
@@ -21,6 +22,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:amount, :stock_id)
+    params.require(:transaction).permit(:amount, :stock_id, :transaction_type)
   end
 end
