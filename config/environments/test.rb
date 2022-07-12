@@ -47,4 +47,15 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  
+  # Tell Action Mailer not to deliver emails to the real world.
+  # The :test delivery method accumulates sent emails in the
+  # ActionMailer::Base.deliveries array.
+  config.action_mailer.delivery_method = :test
+
+  # no async jobs in test environment
+  config.active_job.queue_adapter = :inline
+
+  # default_url_option for testing
+  config.action_mailer.default_url_options = { host: 'example.com' }
 end
