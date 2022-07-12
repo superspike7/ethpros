@@ -22,18 +22,18 @@
           <%= vite_image_tag 'icons/search.svg', class: 'h-8 w-8 absolute bottom-2 right-2.5' %>
         </div>
 
-        <h4 class="font-bold text-lg text-gray-600">
-          Saturday, 25 June 2022
-        </h4>
+        <div class="font-bold text-lg text-gray-600">
+          Balance: <span class="text-green-600 text-xl">$69.69</span> 
+        </div>
 
         <button class="block h-8 w-8"><%= vite_image_tag 'icons/bell.svg' %></button>
 
         <div class="flex gap-2 items-center">
-          <img src="https://avatars.githubusercontent.com/u/65844337?s=400&u=b872986d427f2a55977da054cc61d941b377799e&v=4" 
+          <img src="https://avatars.dicebear.com/api/initials/<%= current_user.email %>.svg" 
                alt="user avatar"
                class="h-12 w-12 rounded-full"
                >
-          <h3 class="text-xl font-semibold text-gray-800">Spike Vinz Cruz</h3>
+          <h3 class="text-xl font-semibold text-gray-800"><%= current_user.email %></h3>
         </div>
 
       </header>
