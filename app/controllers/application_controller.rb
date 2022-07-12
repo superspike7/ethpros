@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-
+  
   def after_sign_in_path_for(resource)
     if current_user.admin?
       admin_index_path
@@ -12,4 +12,11 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  
+  private
+    def check_admin
+      unless current_user.role == "admin"
+        redirect_back fallback_location: root_path
+      end
+    end
 end
