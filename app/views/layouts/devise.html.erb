@@ -11,6 +11,54 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main class="bg-white relative overflow-hidden h-screen">
+      <header class="h-24 sm:h-32 flex items-center z-30 w-full relative">
+        <div class="absolute -bottom-10 w-full">
+        <% if notice %>
+          <p class="text-center text-xl font-semibold text-gray-50 bg-blue-500 py-2"> &#128276; <%= notice %> </p>
+        <% end %>
+        <% if alert %>
+          <p class="text-center text-xl font-semibold text-gray-50 bg-red-500 py-2">&#9888;&#65039; <%= alert %></p>
+        <% end %>
+        </div>
+        <div class="container mx-auto px-6 flex items-center justify-between">
+          <div class="uppercase text-gray-800 font-black text-3xl">
+            <h1>EthPros</h1>
+          </div>
+          <div class="flex items-center">
+            <nav
+              class="font-sen text-gray-800 uppercase text-lg lg:flex items-center hidden"
+            >
+              <a
+                href="#"
+                class="py-2 px-6 flex text-gray-500 border-b-2 border-gray-500"
+              >
+                Home
+              </a>
+              <a href="#" class="py-2 px-6 flex hover:text-gray-500">
+                Pricing
+              </a>
+              <%=
+                link_to 'Signup',
+                        new_user_registration_path,
+                        class: 'py-2 px-6 flex hover:text-gray-500'
+              %>
+              <%=
+                link_to 'Login',
+                        new_user_session_path,
+                        class:
+                          'py-2 px-6 flex hover:text-gray-100 hover:bg-gray-800 bg-gray-500 rounded-lg text-white'
+              %>
+            </nav>
+            <button class="lg:hidden flex flex-col ml-4">
+              <span class="w-6 h-1 bg-gray-800 mb-1"> </span>
+              <span class="w-6 h-1 bg-gray-800 mb-1"> </span>
+              <span class="w-6 h-1 bg-gray-800 mb-1"> </span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <%= yield %>
+    </main>
   </body>
 </html>
