@@ -1,5 +1,6 @@
 class StocksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  before_action :check_user
 
   def index
     unless user_signed_in?

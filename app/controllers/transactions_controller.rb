@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  before_action :check_user
+  
   def new
     @stock = Stock.find_by_symbol(params[:symbol]) 
     @transaction_type = params[:transaction_type]

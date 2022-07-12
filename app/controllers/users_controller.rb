@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :check_admin,  only: [:show, :edit, :update]
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :check_user, only: [:index, :approval]
 
   def index
   end
