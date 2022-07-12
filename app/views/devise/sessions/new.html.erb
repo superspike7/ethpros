@@ -1,6 +1,11 @@
 <div class="flex">
-  <div class="flex items-center justify-between flex-col w-6/12 h-screen bg-slate-50 border-solid" >
+  <div class="flex items-center justify-between flex-col w-6/12 h-screen bg-slate-50 border-solid relative" >
     <div class="font-bold text-xl">Ethpros</div>
+    <div class="w-full text-center absolute top-12">
+      <% flash.each do |type, msg| %> 
+        <p class="text-xl bg-red-200"><%= msg %></p>
+      <% end %>
+    </div>
     <div class="flex flex-col items-center justify-center w-3/5">
     <%= form_for(resource, as: resource_name, html: {class: 'w-1/2'}, url: session_path(resource_name)) do |f| %>
       <div class="py-1 text-3xl">Welcome back</div>
