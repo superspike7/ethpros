@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
         redirect_back fallback_location: root_path
       end
     end
+    def check_user
+      unless current_user.role == "user"
+        redirect_back fallback_location: admin_index_path
+      end
+    end
 end
