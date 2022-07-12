@@ -19,11 +19,4 @@ class AdminController < ApplicationController
     @users = User.all
     @pending = User.where(pending: "waiting")
   end
-  
-  private
-    def check_admin
-      unless current_user.role == "admin"
-        redirect_back fallback_location: root_path
-      end
-    end
 end
