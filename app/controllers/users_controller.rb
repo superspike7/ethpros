@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :check_admin,  only: [:show, :edit, :update]
   before_action :set_user, only: [:show, :edit, :update]
   before_action :check_user, only: [:index, :approval]
+  before_action :check_pending,only: [:index]
+  layout 'admin',  only: [:show, :edit, :update]
 
   def index
   end
@@ -30,8 +32,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @post.update(post_params)
-      redirect_to @post, notice: 'The user has been updated.'
+    if @user.update(user_params)
+      redirect_to @user, notice: 'The user has been updated.'
     else
       render :edit
     end
@@ -43,6 +45,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:id, :email, :password, :created_at, :role, :pending)
+      params.require(:user).permit(:pending)
     end
 end
