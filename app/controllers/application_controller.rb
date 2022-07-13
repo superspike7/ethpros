@@ -24,4 +24,9 @@ class ApplicationController < ActionController::Base
         redirect_back fallback_location: admin_index_path
       end
     end
+    def check_pending
+      unless current_user.pending == "approved"
+        redirect_to users_approval_path
+      end
+    end
 end
