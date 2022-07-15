@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
     if current_user.admin?
       admin_index_path
     else current_user.user?
-      if current_user.pending?
+      if current_user.waiting?
         users_approval_path
       else
-        users_view_index_path
+        root_path
       end
     end
   end
