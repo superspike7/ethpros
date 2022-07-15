@@ -15,7 +15,11 @@
         <div class='w-1/6'><%= pending.created_at.to_time.strftime('%B %e at %l:%M %p') %></div>
         <div class='flex justify-center w-1/6'><%= pending.pending %></div>
         <div class='flex flex-row justify-end w-1/6'>
-          <div class='px-5'>Edit</div>
+          <div class='px-5'>
+          <%=
+            button_to 'Approve'
+          %>
+          </div>
           <div class='px-5'>Delete</div>
         </div>
     </div>
