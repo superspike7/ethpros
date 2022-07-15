@@ -1,7 +1,7 @@
 class Transaction < ApplicationRecord
   validates_presence_of :amount
 
-  belongs_to :stock
+  belongs_to :stock, optional: true
   belongs_to :user
 
   after_create :update_shares
