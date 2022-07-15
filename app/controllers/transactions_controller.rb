@@ -16,7 +16,7 @@ class TransactionsController < ApplicationController
     if @transaction.save
       redirect_to stocks_path, notice: "your transaction is successful"
     else
-      render :new
+      redirect_to new_transaction_path(@transaction.transaction_type), alert: @transaction.errors.first.full_message
     end
   end
 
