@@ -1,18 +1,17 @@
-<div class="topNavHeader">
-  <a href=/posts><i class="bi bi-layer-backward"></i></a>
-</div>
-
-<div class="show-container">
-  <div class="headers">
-    <div class="header-title"> <%= @user.id %> </div>
-    <div class="header-author"> Sender: <%= @user.email %> </div>
-    <div class="header-created"> <%= @user.created_at %> </div>
-  </div>
-  <div class="body">
-    <div class="body-body"> <%= @user.pending %> </div>
-    <div class="body-buttons">
-      <div class="edit-icon"><%= link_to 'Edit'.html_safe, edit_trader_path(@user) %></div>
-      <div class="delete-icon"><%= link_to 'Delete'.html_safe %></div>
+<div class='flex justify-center content-center text-center flex-col w-auto'>
+  <div class='font-bold pt-64 pb-4 text-5xl'> TRADER <%= @user.id %></div>
+  <div class='flex w-full justify-center content-center self-center text-center'>
+    <div class="flex flex-col contect-center justify-center border-2 border-black h-80 w-2/6 m-auto">
+      <div class="py-3 font-bold text-2xl"> <%= @user.email %> </div> 
+      <div class="py-3 text-xl"> Created on <%= @user.created_at.to_time.strftime('%B %e at %l:%M %p') %> </div>
+      <div class="py-3">
+        <% if @user.pending == "waiting" %>
+          <button class='text-xl font-bold  bg-red-400 uppercase p-1 rounded-2xl border-2 border-solid border-black w-32'> <%= @user.pending %> </button>
+        <% else %>
+          <button class='text-xl font-bold bg-green-400 uppercase p-1 rounded-2xl border-2 border-solid border-black w-32'> <%= @user.pending %> </button>
+        <% end %>
+        <button class='text-xl font-bold bg-green-400 uppercase p-1 rounded-2xl border-2 border-solid border-black w-16'> Edit </button>
+      </div>
     </div>
   </div>
 </div>

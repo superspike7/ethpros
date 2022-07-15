@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  before_action :check_admin,  only: [:show, :edit, :update]
   before_action :set_user, only: [:show, :edit, :update]
   before_action :check_user, only: [:index, :approval]
-  before_action :check_pending,only: [:index]
-  layout 'admin',  only: [:show, :edit, :update]
+  before_action :check_pending, only: [:index]
+  layout 'admin', only: [:show, :edit, :update, :new, :create]
 
   def index
   end
@@ -16,6 +15,9 @@ class UsersController < ApplicationController
 
   def new 
     @user = User.new
+  end
+
+  def edit
   end
 
   def create
