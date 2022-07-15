@@ -1,1 +1,23 @@
-<h1> New </h1>
+<div class='flex justify-center content-center text-center flex-col w-auto'>
+  <div class='font-bold pt-64 pb-4 text-5xl'> New User </div>
+  <div class='flex w-1/2 justify-center content-center self-center'>
+    <%= form_with model: @trader do |form| %>
+      <div class="category-detail-list">
+        <div class="category-add">
+          <div class="">
+            <%= form.label :email, class: "text-left font-bold"%></br>
+            <%= form.email_field :email, class: "border-1 " %>
+          </div>
+        </div>
+        <div class="category-add">
+          <div class="category-add-field"></br>
+            <%= form.label :password, class: "font-bold" %></br>
+            <%= form.password_field :password, class: "cdetailsInput" %></br>
+          </div>
+        </div>
+      <div class="submit"></br>
+        <button class='text-xl font-bold bg-cyan-500 uppercase p-1 rounded-2xl border-2 border-solid border-black w-48'><%= form.submit "Submit", class: "button-form" %></button>
+      </div>
+    <% end %>
+  </div>
+</div>

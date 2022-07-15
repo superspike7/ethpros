@@ -1,28 +1,26 @@
 <div class='p-7 h-screen'>
   <div class='h-1/6 flex flex-row justify-between items-center p-5'>
-    <div class='text-3xl'>Pending Users</div>
-    <div class='flex flex-row justify-between items-center'>
-      <div class='px-5'>Search</div>
-      <div class='p-3 text-center border border-black rounded-xl font-bold'>Add</div>
-    </div>
+    <div class='text-3xl font-bold'>Pending Users</div>
+    <div class='p-3 text-center border-2 border-black rounded-xl font-bold'><%= link_to 'Add', new_trader_path %></div>
   </div>
-  <div class='flex flex-col'>
+  <table class='w-full'> 
+    <tr class='font-bold'>
+      <th class='w-1/6'> ID </th>
+      <th class='w-1/6'> Role </th>
+      <th class='w-1/6'> Email </th>
+      <th class='w-1/6'> Created at </th>
+      <th class='w-1/6'> Status </th>
+    </tr>
     <% @pending.each do |pending| %>
-    <div class='flex flex-row'>
-        <div class='w-1/6'><%= pending.id %></div>
-        <div class='w-1/6'><%= pending.role %></div>
-        <div class='w-1/6'><%= pending.email %></div>
-        <div class='w-1/6'><%= pending.created_at.to_time.strftime('%B %e at %l:%M %p') %></div>
-        <div class='flex justify-center w-1/6'><%= pending.pending %></div>
-        <div class='flex flex-row justify-end w-1/6'>
-          <div class='px-5'>
-          <%=
-            button_to 'Approve'
-          %>
-          </div>
-          <div class='px-5'>Delete</div>
-        </div>
-    </div>
+    <tr class='text-center'>
+      <td class=''><%= pending.id %></td>
+      <td class='uppercase'><%= pending.role %></td>
+      <td class=''><%= link_to pending.email, trader_path(pending.id) %></td>
+      <td class='uppercase'><%= pending.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>
+      <td>
+        <button class='bg-red-400 uppercase p-1 rounded-2xl border-2 border-solid border-black '> <%= pending.pending %> </button>
+      </td>
+    </tr>
     <% end %>
-  </div>
+  </table>
 </div>
