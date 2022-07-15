@@ -11,7 +11,7 @@ RSpec.feature 'StockBuyingOnMarketplaces', type: :feature do
     expect(page).to have_content('Open')
     expect(page).to have_content('AAPL')
     expect(page).to have_content('Apple Inc')
-    expect(page).to have_button('Buy')
+    expect(page).to have_link('Buy')
 
     click_on('Buy')
     expect(page).to have_content('Buy AAPL Stocks')

@@ -12,7 +12,7 @@ RSpec.describe Transaction, type: :model do
     it 'adds an existing share after transaction is created' do
       user = create(:user, email: "spike@gmail.com")
       create(:transaction, user_id: user.id)
-      user.transactions.create(stock_id: Stock.first.id, amount: 10, transaction_type: 'BUY')
+      user.transactions.create(stock_id: Stock.first.id, amount: 10, transaction_type: 'buy')
 
       expect(user.shares.last).to be_present
       expect(user.shares.last.value).to be(79)
@@ -21,7 +21,7 @@ RSpec.describe Transaction, type: :model do
     it 'subtracts an existing share after transaction is created' do
       user = create(:user, email: "spike@gmail.com")
       create(:transaction, user_id: user.id)
-      user.transactions.create(stock_id: Stock.first.id, amount: 10, transaction_type: 'SELL')
+      user.transactions.create(stock_id: Stock.first.id, amount: 10, transaction_type: 'sell')
 
       expect(user.shares.last).to be_present
       expect(user.shares.last.value).to be(59)

@@ -76,15 +76,10 @@
                 </td>
                 <td class="px-6 py-4 text-right">
                     <%=
-                      button_to 'Sell',
-                                new_transaction_path,
+                      link_to 'Sell',
+                                new_transaction_path('sell', s.stock.symbol),
                                 class:
-                                  'font-medium text-blue-600 hover:underline',
-                                params: {
-                                  'symbol' => s.stock.symbol,
-                                  'transaction_type' => 'SELL',
-                                },
-                                method: :get
+                                  'font-medium text-blue-600 hover:underline'
                     %>
                 </td>
                 <td class="px-6 py-4 text-right">
