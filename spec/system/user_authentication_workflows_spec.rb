@@ -17,6 +17,6 @@ RSpec.describe "UserAuthenticationWorkflows", type: :system do
     
     expect { within('form') { click_on('Sign up') } }.to change(User, :count).by(1)
                                                      .and change(ActionMailer::Base.deliveries, :count).by(1)
-    expect(page).to have_current_path(home_path)
+    expect(page).to have_current_path(user_session_path)
   end
 end
