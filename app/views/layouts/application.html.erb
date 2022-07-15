@@ -82,6 +82,14 @@
               </div>
             <% end %>
           </li>
+          <li>
+            <%= link_to new_transaction_path('withdraw') do %>
+              <div class="text-gray-600 text-xl font-medium flex gap-4">
+                <%= vite_image_tag 'icons/transactions.svg', class: 'h-8 stroke-g4ay-600' %>
+              Withdraw
+              </div>
+            <% end %>
+          </li>
         </ul>
         <%=
           button_to 'Logout',
