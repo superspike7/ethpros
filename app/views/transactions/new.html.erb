@@ -1,13 +1,14 @@
 <div class="w-full h-full grid place-items-center p-8">
   <div class="bg-white rounded-xl h-1/2 w-1/3 flex flex-col gap-4 p-4">
     <div class="flex justify-between">
+      <% if @stock %>
       <div class="flex gap-2">
         <div class="h-16 w-16 rounded-full bg-gray-500">
           <img src="<%= @stock.logo_url %>" class="rounded-full" alt="">
         </div>
         <div>
           <h3 class="text-2xl font-bold text-gray-900"><%= @stock.symbol %></h3>
-          <p class="text-lg text-gray-500 font-medium"><%= @stock.company_name %></p>
+          <p class="text-lg text-gray-500 font-medium"><%= @stock.company_name.truncate(30) %></p>
         </div>
       </div>
       <div class="text-right">
@@ -16,11 +17,16 @@
           &uarr; <%= @stock.change_percent %> 
         </h5>
       </div>
+      <% end %>
     </div>
     <div class="rounded-xl flex-1 w-full p-4 flex flex-col">
-      <h1 class="text-2xl font-bold text-center mb-8"> <%= @transaction_type.capitalize %> <%= @stock.symbol %> Stocks</h1>
-      <%= form_with model: @new_stock, class: 'flex flex-col justify-between flex-1' do |f| %>
-        <%= f.hidden_field :stock_id, value: @new_stock.stock_id %>
+      <% if @stock %>
+        <h1 class="text-2xl font-bold text-center mb-8"> <%= @transaction_type.capitalize %> <%= @stock.symbol %> Stocks</h1>
+        <% else %>
+        <h1 class="text-2xl font-bold text-center mb-8"> <%= @transaction_type.capitalize %> Cash </h1>
+      <% end %>
+      <%= form_with model: @transaction, class: 'flex flex-col justify-between flex-1' do |f| %>
+        <%= f.hidden_field :stock_id, value: @stock.id if @stock %>
         <%= f.hidden_field :transaction_type, value: @transaction_type %>
 
        <div class"flex flex-col gap-2">
