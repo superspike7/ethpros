@@ -12,6 +12,7 @@ class BackfillStocksJob < ApplicationJob
         logo_url: "https://storage.googleapis.com/iex/api/logos/#{data.symbol}.png",
         chart: client.chart(data.symbol)
       )
+      sleep 1
     end
   end
 end
