@@ -31,10 +31,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(pending: params[:pending])
+    if @user.update(user_params)
       redirect_to admin_all_path, notice: 'The user has been updated.'
-      if user_params.has_key(:pending)
-        UserMailer.with(user: @user).approved_mail.deliver_later
+      if user_params.has_key?(:pending)
+        ApprovedMailer.with(user: @user).approved_mail.deliver_now
       end
     else
       render :edit
