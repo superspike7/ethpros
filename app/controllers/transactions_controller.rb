@@ -1,8 +1,9 @@
 class TransactionsController < ApplicationController
   def new
-    @stock = Stock.find_by_symbol(params[:symbol])
+    @stock = Stock.find_by_symbol(params[:symbol]) 
     @transaction_type = params[:transaction_type]
-    @new_stock = Transaction.new(stock_id: @stock.id)
+    
+    @transaction = Transaction.new
   end
 
   def index

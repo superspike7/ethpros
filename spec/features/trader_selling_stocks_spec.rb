@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.feature 'TraderSellingStocks', type: :feature do
   scenario 'Trader Bought a stock ' do
-    transaction = create(:transaction)
-    sign_in transaction.user
+    user = create(:user)
+    transaction = create(:transaction, user_id: user.id)
+    sign_in user
 
     visit 'stocks'
 
