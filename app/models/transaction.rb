@@ -11,16 +11,26 @@ class Transaction < ApplicationRecord
   def update_shares
     if stock_id
       share = user.shares.find_or_create_by(stock_id:)
+      user.balance = calculate_balance(share.stock.price)
+      user.save!
       share.value = changed_share_value(share.value)
       share.save!
     end
   end
 
+  def calculate_balance(price)
+    if transaction_type == 'sell'
+      user.balance + amount * price  
+    elsif transaction_type == 'buy'
+     user.balance - amount * price  
+    end
+  end
+
   def changed_share_value(value)
     if transaction_type == 'sell'
-      value - amount
+      amount - value
     elsif transaction_type == 'buy'
-      value + amount
+      amount + value
     end
   end
 end
