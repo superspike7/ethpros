@@ -10,7 +10,7 @@
         <% else %>
           <button class='text-xl font-bold bg-green-400 uppercase p-1 rounded-2xl border-2 border-solid border-black w-32'> <%= @user.pending %> </button>
         <% end %>
-        <button class='text-xl font-bold bg-green-400 uppercase p-1 rounded-2xl border-2 border-solid border-black w-16'> Edit </button>
+        <button class='text-xl font-bold bg-green-400 uppercase p-1 rounded-2xl border-2 border-solid border-black w-16'> <%= link_to 'Edit', edit_trader_path(@user.id) %> </button>
       </div>
     </div>
   </div>
