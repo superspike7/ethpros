@@ -4,12 +4,12 @@ class AdminController < ApplicationController
   
   def index
     @users = User.all
-    @pending = User.where(pending: "waiting")
-    @newuser = User.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+    @pending = User.where(pending: "waiting", role: 0)
+    @newuser = User.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day, role: 0)
   end
 
   def all
-    @users = User.all
+    @users = User.all.where(role: 0)
   end
 
   def transactions
@@ -17,6 +17,6 @@ class AdminController < ApplicationController
 
   def pending
     @users = User.all
-    @pending = User.where(pending: "waiting")
+    @pending = User.where(pending: "waiting", role: 0)
   end
 end
