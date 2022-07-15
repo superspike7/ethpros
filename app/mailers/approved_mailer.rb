@@ -3,7 +3,7 @@ class ApprovedMailer < ApplicationMailer
 
   def approved_mail
     @user = params[:user]
-    @url  = 'http://example.com/login'
+    @url  = user_session_url
     mail(to: @user.email, subject: 'Your account has been approved!')
   end
 end
