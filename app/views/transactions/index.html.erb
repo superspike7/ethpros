@@ -22,22 +22,13 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Ticker
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Ticker Name
-                </th>
-                <th scope="col" class="px-6 py-3">
                     Type
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Shares
+                   Amount 
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Cost
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Cost/Share
+                    Stock 
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Date
@@ -47,24 +38,15 @@
         <tbody>
           <% @transactions.each do |t| %>
             <tr class="bg-white border-b ">
+                <td class="px-6 py-4">
+                  <%= t.transaction_type %>
+                </td>
+                <td class="px-6 py-4">
+                 <%= "$" unless t.stock %><%= t.amount %>
+                </td>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                  <%= t.stock.symbol %>
+                  <%= t.stock.symbol if t.stock %>
                 </th>
-                <td class="px-6 py-4">
-                  <%= t.stock.company_name %>
-                </td>
-                <td class="px-6 py-4">
-                  Buy(static tba)
-                </td>
-                <td class="px-6 py-4">
-                  <%= t.amount %>
-                </td>
-                <td class="px-6 py-4">
-                  <%= t.stock.price %>
-                </td>
-                <td class="px-6 py-4">
-                  $420.69(static tba)
-                </td>
                 <td class="px-6 py-4">
                   <%= t.created_at.strftime("%B %d %Y") %>
                 </td>
